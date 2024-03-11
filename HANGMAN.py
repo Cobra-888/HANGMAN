@@ -81,16 +81,16 @@ print("It's a HANGMAN!")
 #Game cycle 
 #as long as wrong is less than 6 and lineWord is not equal to word, the loop continues
 while wrong < 6 and lineWord != word:
-  print(HANGMANPICS[wrong])                #image output
-  print(f"You have {lives} lives left")    #withdrawal of lives
+  print(HANGMANPICS[wrong])                 #image output
+  print(f"You have {lives} lives left")     #withdrawal of lives
   print()
-  print(f"Used letters: {use}")            #output of used letters
+  print(f"Used letters: {use}")             #output of used letters
   print()
-  print(f"word: {lineWord}")               #lineWord output
+  print(f"word: {lineWord}")                #lineWord output
   print()
-  print("Enter yout guess")                #output of a letter input request
+  print("Enter yout guess")                 #output of a letter input request
   answer = input(">>> ").strip().lower()
-  clear()                                  #clearing the screen
+  clear()                                   #clearing the screen
 
   #If the entered word is in use
   if answer in use:
@@ -102,40 +102,40 @@ while wrong < 6 and lineWord != word:
 
   #Otherwise, if the entered word is in word
   elif answer in word:
-    use.append(answer)                                  #Adding to use
-    print(f"You got it! '{answer}' is in the word")     #We inform the player about this
-    for i in range(len(word)):                          #Searching for a letter in a word
-      if answer == word[i]:                             #If the letter is in the word
+    use.append(answer)                                      #Adding to use
+    print(f"You got it! '{answer}' is in the word")         #We inform the player about this
+    for i in range(len(word)):                              #Searching for a letter in a word
+      if answer == word[i]:                                 #If the letter is in the word
         lineWord = lineWord[:i] + answer + lineWord[i+1:]   #Replace the "_" sign with this letter
-        clear()                #Clearing the screen
-        continue               # We continue the cycle
+        clear()                                             #Clearing the screen
+        continue                                            #We continue the cycle
 
   #If the letter is not in the word
   else:
-    use.append(answer)          #Adding a letter to use
-    lives -= 1                  #Editing the parameters
-    wrong += 1                  #Editing the parameters
-    print("Nope, not in there")    #We inform the player about this
-    clear()                     #Clearing the screen
-    continue                    # We continue the cycle
+    use.append(answer)                #Adding a letter to use
+    lives -= 1                        #Editing the parameters
+    wrong += 1                        #Editing the parameters
+    print("Nope, not in there")       #We inform the player about this
+    clear()                           #Clearing the screen
+    continue                          #We continue the cycle
 
 #If wrong is equal to 6 (the player lost)
 if wrong == 6:
-  print(HANGMANPICS[wrong])        #We display the picture
-  print(f"Your lives {lives}")     #Output the number of lives
+  print(HANGMANPICS[wrong])          #We display the picture
+  print(f"Your lives {lives}")       #Output the number of lives
   print()
-  print("You lost!")               #We inform the player about this
+  print("You lost!")                 #We inform the player about this
   print()
-  print(f"The word was {word}")    #Output the word
-  exit()                #Completing the game
+  print(f"The word was {word}")      #Output the word
+  exit()                             #Completing the game
 
 #If lineWord is equal to word (the player won)
 elif lineWord == word:
-  print(HANGMANPICS[wrong])       #We display the picture
-  print(f"Your lives {lives}")    #Output the number of lives
+  print(HANGMANPICS[wrong])         #We display the picture
+  print(f"Your lives {lives}")      #Output the number of lives
   print()
-  print("You won!")               #We inform the player about this
+  print("You won!")                 #We inform the player about this
   print()
-  print(f"The word was {word}")   #Output the word
-  exit()                #Completing the game
+  print(f"The word was {word}")     #Output the word
+  exit()                            #Completing the game
     
